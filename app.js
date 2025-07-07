@@ -2,10 +2,10 @@ $(document).ready(function () {
 
     $(document).on('keypress', function (e) {
         if (e.which == 13) {
-            let url = ``
+            let url = `https://api-24.vercel.app/api/news`;
             async function mynews() {
-                let responce = await fetch(url)
-                let data = await responce.json()
+                let responce = await fetch(url);
+                let data = await responce.json();
 
                 if (Array.isArray(data.news)) {
                     data.news.forEach(item => {
@@ -35,12 +35,12 @@ $(document).ready(function () {
 
     $("h2").click(async function (e) {
         e.preventDefault();
-        let url = ``
+        let url = `https://api-24.vercel.app/api/news`;
 
-            async function mynews() {
+        async function mynews() {
             let responce = await fetch(url);
             let data = await responce.json();
-                console.log(data);
+            console.log(data);
             if (Array.isArray(data.news)) {
                 data.news.forEach(item => {
                     const box = document.createElement('div');
@@ -58,7 +58,7 @@ $(document).ready(function () {
                         </div>
                     </div>
                 `;
-                $(".row").append(box);
+                    $(".row").append(box);
                 });
             }
         }
